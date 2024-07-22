@@ -1,0 +1,60 @@
+{
+  "name": "login-signin-ui",
+  "productName": "Login SignIn UI",
+  "version": "1.0.0",
+  "description": "SignIn Login UI",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "build": "electron-builder",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\""
+  },
+  "build": {
+    "appId": "Login SignIn UI",
+    "productName": "Login-SignIn UI",
+    "copyright": "Copyright © 2024 by Manish Tirkey",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "public/favico.ico",
+      "publisherName": "Manish Tirkey"
+    },
+    "nsis": {
+      "oneClick": false,
+      "installerIcon": "public/favico.ico",
+      "installerHeaderIcon": "public/favico.ico",
+      "uninstallerIcon": "public/favico.ico",
+      "uninstallDisplayName": "Login SignIn UI",
+      "license": "license.md",
+      "allowToChangeInstallationDirectory": true,
+      "runAfterFinish": true,
+      "deleteAppDataOnUninstall": true,
+      "createDesktopShortcut": true
+    }
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.4.0",
+    "@electron-forge/maker-deb": "^7.4.0",
+    "@electron-forge/maker-rpm": "^7.4.0",
+    "@electron-forge/maker-squirrel": "^7.4.0",
+    "@electron-forge/maker-zip": "^7.4.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.4.0",
+    "@electron-forge/plugin-fuses": "^7.4.0",
+    "@electron/fuses": "^1.8.0",
+    "electron": "31.2.1",
+    "electron-builder": "^24.13.3"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Manish Tirkey",
+    "email": "asdmamanish@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.1"
+  }
+}

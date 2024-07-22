@@ -1,0 +1,127 @@
+svg {
+  width: 16px;
+  height: 16px;
+
+  stroke-width: 2px;
+}
+
+.title-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  min-width: 100%;
+  max-width: 100%;
+  width: 100%;
+
+  min-height: 34px;
+  max-height: 34px;
+  height: 34px;
+  background: linear-gradient(45deg, #000000, #11111e, #060606);
+}
+
+.title-bar .spacer {
+  flex: 1;
+  height: 100%;
+
+  -webkit-app-region: drag;
+}
+
+.title-bar .title-right {
+  height: 100%;
+  /* border: 2px solid red; */
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.title-bar .title-right .window-cmini-maxi {
+  display: flex;
+  align-items: center;
+  height: inherit;
+}
+
+.title-bar .title-right .window-cmini-maxi .action-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: inherit;
+  width: 44px;
+}
+
+.title-bar .title-right .win-restore-maximize {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: inherit;
+}
+
+.title-bar :is(.win-maximize svg, .win-restore svg) {
+  width: 12px;
+  height: 12px;
+
+  stroke-width: 3px;
+}
+
+.title-bar .title-right .win-close:is(:hover) {
+  background-color: #e81123;
+}
+
+.title-bar .title-right .win-close:is(:active) {
+  background-color: #e8112385;
+}
+
+.title-bar .title-right .window-cmini-maxi .win-restore {
+  position: relative;
+}
+
+.title-bar .title-right .window-cmini-maxi .win-maximize {
+  position: absolute;
+}
+
+.title-bar
+  .title-right
+  :is(.win-restore:hover, .win-minimize:hover, .win-maximize:hover) {
+  background-color: #8686865d;
+}
+
+.title-bar
+  .title-right
+  :is(.win-restore:active, .win-minimize:active, .win-maximize:active) {
+  background-color: #86868691;
+}
+
+@media (prefers-color-scheme: light) {
+  .title-bar {
+    background: #ff416c;
+    background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
+    background: linear-gradient(to right, #ff4b2b, #ff416c);
+  }
+
+  .title-bar
+    .title-right
+    :is(.win-restore:hover, .win-minimize:hover, .win-maximize:hover) {
+    background-color: #8686865d;
+  }
+
+  .title-bar
+    .title-right
+    :is(.win-restore:active, .win-minimize:active, .win-maximize:active) {
+    background-color: #86868691;
+  }
+
+  .title-bar .title-center {
+    background-color: rgba(255, 255, 255, 0.411);
+
+    border: 1px solid rgba(255, 255, 255, 0.233);
+  }
+
+  .title-bar .title-center:hover {
+    background-color: rgba(255, 255, 255, 0.118);
+    border: 1px solid rgba(255, 255, 255, 0.117);
+  }
+}
