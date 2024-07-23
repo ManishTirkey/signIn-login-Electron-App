@@ -6,11 +6,11 @@ window.addEventListener("load", () => {
 
   const update_maxi_restore_btn = (res) => {
     if (res) {
-      maximize.style.zIndex = "-1";
-      restore.style.zIndex = "10";
+      maximize.style.display = "none";
+      restore.style.display = "inherit";
     } else {
-      maximize.style.zIndex = "10";
-      restore.style.zIndex = "-1";
+      maximize.style.display = "inherit";
+      restore.style.display = "none";
     }
   };
 

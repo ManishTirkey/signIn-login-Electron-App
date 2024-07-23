@@ -11,8 +11,12 @@ let mainwindow = null;
 const createWindow = () => {
   // Create the browser window.
   mainwindow = new BrowserWindow({
+    minHeight: 500,
+    minWidth: 600,
+
     width: 1000,
     height: 700,
+
     show: false,
 
     title: "Password Manager",
@@ -28,7 +32,7 @@ const createWindow = () => {
       enableRemoteModule: false,
 
       // make false when app is ready to build
-      devTools: false,
+      devTools: true,
       preload: path.join(__dirname, "src/main_preload.js"),
     },
   });
