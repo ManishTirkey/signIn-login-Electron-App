@@ -30,7 +30,6 @@ span {
 }
 
 a {
-  color: #fff;
   font-size: 14px;
   text-decoration: none;
   margin: 15px 0;
@@ -38,10 +37,7 @@ a {
 
 button {
   border-radius: 20px;
-  /* border: 1px solid #FF4B2B;
-	background-color: #FF4B2B; */
-  background: linear-gradient(45deg, #000000, #11111e, #060606);
-  border: 1px solid #060606;
+
   color: #ffffff;
   font-size: 12px;
   font-weight: bold;
@@ -61,13 +57,11 @@ button:focus {
 }
 
 button.ghost {
-  /* background-color: transparent; */
+  background-color: transparent;
   border-color: #ffffff;
-  background: #262529;
 }
 
 form {
-  background-color: #262529;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -169,13 +163,6 @@ input {
 }
 
 .overlay {
-  /* background: #FF416C; */
-  /* background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C); */
-  /* background: linear-gradient(to right, #FF4B2B, #FF416C); */
-
-  background: linear-gradient(45deg, #000000, #11111e, #060606);
-  /* background-image: linear-gradient(to left, #3b3d41, #2e3437, #242b2b, #1c211f, #161813); */
-
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
@@ -239,35 +226,33 @@ input {
   width: 40px;
 }
 
-footer {
-  background-color: #222;
-  color: #fff;
-  font-size: 14px;
-  bottom: 0;
-  position: fixed;
-  left: 0;
-  right: 0;
-  text-align: center;
-  z-index: 999;
-}
+@media (prefers-color-scheme: dark) {
+  .container {
+    background-color: var(--dark_container_bg);
+  }
 
-footer p {
-  margin: 10px 0;
-}
+  a {
+    color: #fff;
+  }
 
-footer i {
-  color: red;
-}
+  form {
+    background-color: var(--dark_container_bg);
+    color: #fff;
+  }
 
-footer a {
-  color: #3c97bf;
-  text-decoration: none;
+  .overlay {
+    background: var(--dark_bg);
+  }
+
+  button {
+    border: 1px solid #060606;
+    background: #11111e;
+  }
 }
 
 @media (prefers-color-scheme: light) {
   .container {
-    background-color: #fff;
-    background-color: transparent;
+    background-color: var(--white_container_bg);
   }
 
   a {
@@ -275,18 +260,12 @@ footer a {
   }
 
   form {
-    background-color: #ffffff;
+    background-color: var(--white_container_bg);
     color: #000;
   }
 
   .overlay {
-    background: #a10ca3;
-    background: -webkit-linear-gradient(to right, #a10ca3, #420945);
-    background: linear-gradient(to right, #a10ca3, #420945);
-  }
-
-  button.ghost {
-    background-color: transparent;
+    background: var(--white_bg);
   }
 
   button {
