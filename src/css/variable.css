@@ -1,4 +1,19 @@
 :root {
   --dark_mode: #23272e;
   --white_mode: #ddd;
+
+  --dark_bg: linear-gradient(to right, #000000, #11111e, #060606);
+  --webkit_dark_bg: -webkit-linear-gradient(
+    to right,
+    #000000,
+    #11111e,
+    #060606
+  );
+
+  --webkit_white_bg: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
+  --white_bg: linear-gradient(to right, #ff4b2b, #ff416c);
+
+  /* container */
+  --dark_container_color: #262529;
+  --white_container_color: #fff;
 }

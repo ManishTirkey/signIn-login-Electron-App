@@ -1,10 +1,3 @@
-svg {
-  width: 16px;
-  height: 16px;
-
-  stroke-width: 2px;
-}
-
 .title-bar {
   display: flex;
   flex-direction: row;
@@ -18,7 +11,6 @@ svg {
   min-height: 34px;
   max-height: 34px;
   height: 34px;
-  background: linear-gradient(45deg, #000000, #11111e, #060606);
 }
 
 .title-bar .spacer {
@@ -30,13 +22,11 @@ svg {
 
 .title-bar .title-right {
   height: 100%;
-  /* border: 2px solid red; */
 
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-
 
 .title-bar .title-right .window-cmini-maxi {
   display: flex;
@@ -58,6 +48,14 @@ svg {
   align-items: center;
   position: relative;
   height: inherit;
+}
+
+.title-bar svg {
+  width: 16px;
+  height: 16px;
+
+  stroke-width: 2px;
+  stroke: var(--white_mode);
 }
 
 .title-bar :is(.win-maximize svg, .win-restore svg) {
@@ -95,11 +93,17 @@ svg {
   background-color: #86868691;
 }
 
+@media (prefers-color-scheme: dark) {
+  .title-bar {
+    background: var(--webkit_dark_bg);
+    background: var(--dark_bg);
+  }
+}
+
 @media (prefers-color-scheme: light) {
   .title-bar {
-    background: #ff416c;
-    background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
-    background: linear-gradient(to right, #ff4b2b, #ff416c);
+    background: var(--webkit_white_bg);
+    background: var(--white_bg);
   }
 
   .title-bar
@@ -112,16 +116,5 @@ svg {
     .title-right
     :is(.win-restore:active, .win-minimize:active, .win-maximize:active) {
     background-color: #86868691;
-  }
-
-  .title-bar .title-center {
-    background-color: rgba(255, 255, 255, 0.411);
-
-    border: 1px solid rgba(255, 255, 255, 0.233);
-  }
-
-  .title-bar .title-center:hover {
-    background-color: rgba(255, 255, 255, 0.118);
-    border: 1px solid rgba(255, 255, 255, 0.117);
   }
 }

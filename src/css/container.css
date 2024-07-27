@@ -28,10 +28,6 @@ a {
 
 button {
   border-radius: 20px;
-  /* border: 1px solid #FF4B2B;
-	background-color: #FF4B2B; */
-  background: linear-gradient(45deg, #000000, #11111e, #060606);
-  border: 1px solid #060606;
   color: #ffffff;
   font-size: 12px;
   font-weight: bold;
@@ -51,17 +47,16 @@ button:focus {
 }
 
 button.ghost {
-  /* background-color: transparent; */
   border-color: #ffffff;
-  background: #262529;
+  background: transparent;
 }
 
 form {
-  background-color: #262529;
+  background-color: var(--dark_container_color);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+
   flex-direction: column;
   padding: 0 50px;
   height: 100%;
@@ -85,7 +80,7 @@ input {
 .container {
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  background-color: #262529;
+
   position: relative;
   overflow: hidden;
   width: 768px;
@@ -157,12 +152,6 @@ input {
 }
 
 .overlay {
-  /* background: #FF416C; */
-  /* background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C); */
-
-  background: linear-gradient(45deg, #000000, #11111e, #060606);
-  /* background-image: linear-gradient(to left, #3b3d41, #2e3437, #242b2b, #1c211f, #161813); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
@@ -226,34 +215,32 @@ input {
   width: 40px;
 }
 
-footer {
-  background-color: #222;
-  color: #fff;
-  font-size: 14px;
-  bottom: 0;
-  position: fixed;
-  left: 0;
-  right: 0;
-  text-align: center;
-  z-index: 999;
-}
+@media (prefers-color-scheme: dark) {
+  a {
+    color: #fff;
+  }
+  .overlay {
+    background: var(--dark_bg);
+  }
 
-footer p {
-  margin: 10px 0;
-}
+  button {
+    background: #11111e;
+    border: 1px solid #060606;
+  }
 
-footer i {
-  color: red;
-}
+  form {
+    background-color: var(--dark_container_color);
+    color: #fff;
+  }
 
-footer a {
-  color: #3c97bf;
-  text-decoration: none;
+  .container {
+    background-color: var(--dark_container_color);
+  }
 }
 
 @media (prefers-color-scheme: light) {
   .container {
-    background-color: #fff;
+    background-color: var(--white_container_color);
   }
 
   a {
@@ -261,18 +248,13 @@ footer a {
   }
 
   form {
-    background-color: #ffffff;
+    background-color: var(--white_container_color);
     color: #000;
   }
 
   .overlay {
-    background: #ff416c;
-    background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
-    background: linear-gradient(to right, #ff4b2b, #ff416c);
-  }
-
-  button.ghost {
-    background-color: transparent;
+    background: var(--webkit_white_bg);
+    background: var(--white_bg);
   }
 
   button {
