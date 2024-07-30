@@ -32,7 +32,7 @@ const createWindow = () => {
       enableRemoteModule: false,
 
       // make false when app is ready to build
-      devTools: true,
+      devTools: false,
       preload: path.join(__dirname, "src/main_preload.js"),
     },
   });
