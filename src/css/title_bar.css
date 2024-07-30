@@ -1,5 +1,13 @@
+.title-bar .spacer {
+  flex: 1;
+  height: 100%;
+
+  -webkit-app-region: drag;
+}
+
 .title-bar {
   position: fixed;
+  background: inherit;
   top: 14px;
   left: 50%;
   transform: translateX(-50%);
@@ -19,13 +27,21 @@
   height: 34px;
 
   z-index: 10000;
+  overflow: hidden;
 }
 
-.title-bar .spacer {
-  flex: 1;
-  height: 100%;
-
-  -webkit-app-region: drag;
+.title-bar::after {
+  content: "";
+  width: 150%;
+  height: 150%;
+  background: inherit;
+  position: absolute;
+  left: -10px;
+  right: -10px;
+  top: -10px;
+  bottom: -10px;
+  z-index: 10;
+  filter: blur(8px);
 }
 
 .title-bar .title-right {
@@ -33,12 +49,14 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: end;
 }
 
 .title-bar .title-right .window-cmini-maxi {
   display: flex;
   align-items: center;
   height: inherit;
+  z-index: 100;
 }
 
 .title-bar .title-right .window-cmini-maxi .action-container {
@@ -64,7 +82,6 @@
   height: 16px;
 
   stroke-width: 2px;
-  stroke: #fff;
 }
 
 .title-bar :is(.win-maximize svg, .win-restore svg) {
@@ -98,14 +115,28 @@
 
 @media (prefers-color-scheme: light) {
   .title-bar {
-    background: var(--white_bg);
-    box-shadow: 0px 0px 20px 2px #1e101075;
+    outline: 1px solid #e1e1e11a;
+  }
+
+  .title-bar::after {
+    box-shadow: inset 0 0 0 200px rgb(255 255 255 / 9%);
+  }
+
+  .title-bar svg {
+    stroke: #000000;
   }
 }
 
 @media (prefers-color-scheme: dark) {
   .title-bar {
-    background: var(--dark_bg);
-    box-shadow: 0 0 20px 4px #33323282;
+    outline: 1px solid #8383830f;
+  }
+
+  .title-bar::after {
+    box-shadow: inset 0 0 0 200px rgb(57 57 57 / 18%);
+  }
+
+  .title-bar svg {
+    stroke: #fff;
   }
 }

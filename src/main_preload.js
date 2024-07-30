@@ -6,7 +6,7 @@ contextBridge.exposeInMainWorld("darkMode", {
   invoke: (channel) => ipcRenderer.invoke(channel),
 });
 
-contextBridge.exposeInMainWorld("window_title_bar", {
+contextBridge.exposeInMainWorld("MainWindow", {
   send: (channel) => ipcRenderer.send(channel),
   invoke: (channel) => ipcRenderer.invoke(channel),
 

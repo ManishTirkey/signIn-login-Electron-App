@@ -1,33 +1,18 @@
-.bg {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.bg svg {
-  width: 100%;
-  height: 100%;
+body {
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 @media (prefers-color-scheme: dark) {
-  .bg-dark {
-    z-index: 1;
-  }
-
-  .bg-light {
-    z-index: -1;
+  body {
+    background-image: url("./dark_bg.svg");
   }
 }
 
 @media (prefers-color-scheme: light) {
-  .bg-light {
-    z-index: 1;
-  }
-  .bg-dark {
-    z-index: -1;
+  body {
+    background-image: url("./white_bg.svg");
   }
 }

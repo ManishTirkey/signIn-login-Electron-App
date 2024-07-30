@@ -2,9 +2,9 @@
   --dark_mode: #23272e;
   --white_mode: #ddd;
 
-  --dark_bg: linear-gradient(to right, #000000, #11111e, #060606);
-  --white_bg: linear-gradient(to right, #750075, #c100c1);
+  --dark_bg: #00000057;
+  --white_bg: #fff;
 
-  --dark_container_bg: #262529;
-  --white_container_bg: #fff;
+  --dark_overlay_bg: #00000087;
+  --white_overlay_bg: #ffffff24;
 }

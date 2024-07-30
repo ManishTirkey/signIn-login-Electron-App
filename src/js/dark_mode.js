@@ -13,25 +13,30 @@
 
 // });
 
-const mode = document.getElementById("mode");
+window.addEventListener("load", () => {
+  const mode = document.getElementById("mode");
 
-mode.addEventListener("click", function (e) {
-  document.body.classList.toggle("dark");
+  mode.addEventListener("click", function (e) {
+    document.body.classList.toggle("dark");
 
-  mode.classList.toggle("off");
+    mode.classList.toggle("off");
 
-  mode.classList.add("scaling");
+    mode.classList.add("scaling");
 
-  setTimeout(function () {
-    mode.classList.remove("scaling");
-    DarkToggle();
-  }, 520);
+    setTimeout(function () {
+      mode.classList.remove("scaling");
+      DarkToggle();
+    }, 520);
+  });
 });
 
 const DarkToggle = async () => {
   // await window.darkMode.toggle()
-  darkMode.invoke("dark-mode:toggle");
+
+  darkMode.invoke("dark-mode:toggle")
 
   // const isDarkMode = await window.darkMode.toggle()
   // document.body.className = isDarkMode ? 'dark' : ''
 };
+
+
