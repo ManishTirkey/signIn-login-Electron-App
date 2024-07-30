@@ -1,3 +1,13 @@
+.container-wrapper {
+  position: relative;
+  flex: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
 h1 {
   font-weight: bold;
   margin: 0;
@@ -88,6 +98,8 @@ input {
   min-height: 480px;
   height: 500px;
 
+  background-color: transparent;
+
   font-family: "Montserrat", sans-serif;
 }
 
@@ -152,6 +164,14 @@ input {
 }
 
 .overlay {
+
+  /* background: #FF416C; */
+  /* background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C); */
+  /* background: linear-gradient(to right, #FF4B2B, #FF416C); */
+
+  background: linear-gradient(45deg, #000000, #11111e, #060606);
+  /* background-image: linear-gradient(to left, #3b3d41, #2e3437, #242b2b, #1c211f, #161813); */
+
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
@@ -241,6 +261,7 @@ input {
 @media (prefers-color-scheme: light) {
   .container {
     background-color: var(--white_container_color);
+
   }
 
   a {
@@ -257,8 +278,12 @@ input {
     background: var(--white_bg);
   }
 
+  button.ghost {
+    background-color: transparent;
+  }
+
   button {
-    border: 1px solid #ff4b2b;
-    background: #ff4b2b;
+    border: 1px solid #420945;
+    background: #a10ca3;
   }
 }
