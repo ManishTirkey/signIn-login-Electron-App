@@ -65,7 +65,7 @@ form {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+
   flex-direction: column;
   padding: 0 50px;
   height: 100%;
@@ -263,6 +263,25 @@ input {
   button.ghost {
     border-color: #ffffff;
   }
+
+  .overlay {
+    background: var(--dark_bg);
+  }
+
+  button {
+    background: #11111e;
+    border: 1px solid #060606;
+  }
+
+  form {
+    background-color: var(--dark_container_color);
+    color: #fff;
+  }
+
+  .container {
+    background-color: var(--dark_container_color);
+  }
+}
 
   .container {
     outline: 1px solid #79797917;

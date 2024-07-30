@@ -111,7 +111,12 @@
   background-color: #86868691;
 }
 
-/* ----------------------------------theme control */
+@media (prefers-color-scheme: dark) {
+  .title-bar {
+    background: var(--webkit_dark_bg);
+    background: var(--dark_bg);
+  }
+}
 
 @media (prefers-color-scheme: light) {
   .title-bar {
