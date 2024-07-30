@@ -6,6 +6,8 @@
   justify-content: center;
   align-items: center;
   z-index: 100;
+  background: inherit;
+  overflow: hidden;
 }
 
 h1 {
@@ -30,7 +32,6 @@ span {
 }
 
 a {
-  color: #fff;
   font-size: 14px;
   text-decoration: none;
   margin: 15px 0;
@@ -38,7 +39,6 @@ a {
 
 button {
   border-radius: 20px;
-  color: #ffffff;
   font-size: 12px;
   font-weight: bold;
   padding: 12px 45px;
@@ -46,6 +46,7 @@ button {
   text-transform: uppercase;
   transition: transform 80ms ease-in;
   cursor: pointer;
+  background: transparent;
 }
 
 button:active {
@@ -57,12 +58,10 @@ button:focus {
 }
 
 button.ghost {
-  border-color: #ffffff;
-  background: transparent;
+  background-color: transparent;
 }
 
 form {
-  background-color: var(--dark_container_color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,6 +70,7 @@ form {
   padding: 0 50px;
   height: 100%;
   text-align: center;
+  background: transparent;
 }
 
 input {
@@ -90,17 +90,27 @@ input {
 .container {
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-
   position: relative;
-  overflow: hidden;
   width: 768px;
   max-width: 100%;
   min-height: 480px;
   height: 500px;
-
-  background-color: transparent;
-
+  overflow: hidden;
+  background: inherit;
   font-family: "Montserrat", sans-serif;
+}
+
+.container::after {
+  content: "";
+  width: 150%;
+  height: 150%;
+  background: inherit;
+  position: absolute;
+  left: -10px;
+  right: -10px;
+  top: -10px;
+  bottom: -10px;
+  filter: blur(8px);
 }
 
 .form-container {
@@ -108,29 +118,31 @@ input {
   top: 0;
   height: 100%;
   transition: all 0.6s ease-in-out;
+  z-index: 100;
 }
 
 .sign-in-container {
   left: 0;
   width: 50%;
-  z-index: 2;
+  z-index: 300;
 }
 
 .container.right-panel-active .sign-in-container {
   transform: translateX(100%);
+  opacity: 0;
 }
 
 .sign-up-container {
   left: 0;
   width: 50%;
   opacity: 0;
-  z-index: 1;
+  z-index: 200;
 }
 
 .container.right-panel-active .sign-up-container {
   transform: translateX(100%);
   opacity: 1;
-  z-index: 5;
+  z-index: 500;
   animation: show 0.6s;
 }
 
@@ -164,18 +176,9 @@ input {
 }
 
 .overlay {
-
-  /* background: #FF416C; */
-  /* background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C); */
-  /* background: linear-gradient(to right, #FF4B2B, #FF416C); */
-
-  background: linear-gradient(45deg, #000000, #11111e, #060606);
-  /* background-image: linear-gradient(to left, #3b3d41, #2e3437, #242b2b, #1c211f, #161813); */
-
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
-  color: #ffffff;
   position: relative;
   left: -100%;
   height: 100%;
@@ -225,7 +228,6 @@ input {
 }
 
 .social-container a {
-  border: 1px solid #dddddd;
   border-radius: 50%;
   display: inline-flex;
   justify-content: center;
@@ -239,6 +241,29 @@ input {
   a {
     color: #fff;
   }
+
+  form {
+    color: #fff;
+  }
+
+  .social-container a {
+    border: 1px solid #dddddd;
+  }
+
+  .overlay {
+    background-color: var(--dark_overlay_bg);
+    color: #ffffff;
+  }
+
+  button {
+    border: 1px solid #333333;
+    color: #fff;
+  }
+
+  button.ghost {
+    border-color: #ffffff;
+  }
+
   .overlay {
     background: var(--dark_bg);
   }
@@ -258,32 +283,51 @@ input {
   }
 }
 
-@media (prefers-color-scheme: light) {
   .container {
-    background-color: var(--white_container_color);
-
+    outline: 1px solid #79797917;
   }
 
+  .container::after {
+    box-shadow: inset 0 0 0 2000px rgb(97 97 97 / 30%);
+  }
+}
+
+@media (prefers-color-scheme: light) {
   a {
-    color: #333;
+    color: #000000d5;
+  }
+
+  p {
+    font-weight: 400;
+  }
+
+  .social-container a {
+    border: 1px solid #000000d5;
   }
 
   form {
-    background-color: var(--white_container_color);
     color: #000;
   }
 
   .overlay {
-    background: var(--webkit_white_bg);
-    background: var(--white_bg);
-  }
-
-  button.ghost {
-    background-color: transparent;
+    background: var(--white_overlay_bg);
+    color: #000;
   }
 
   button {
-    border: 1px solid #420945;
-    background: #a10ca3;
+    border: 1px solid #00000047;
+    color: #000;
+  }
+
+  button.ghost {
+    border-color: #000000;
+  }
+
+  .container {
+    outline: 1px solid #ffffff4a;
+  }
+
+  .container::after {
+    box-shadow: inset 0 0 0 2000px rgb(255 255 255 / 18%);
   }
 }

@@ -13,15 +13,14 @@ const createWindow = () => {
   mainwindow = new BrowserWindow({
     minHeight: 500,
     minWidth: 600,
-
     width: 1000,
     height: 700,
 
+    flashFrame: false,
     show: false,
-
     title: "Password Manager",
     icon: "./public/favico.ico",
-
+    setOverlayIcon: "./public/favico.ico",
     autoHideMenuBar: true,
     frame: false,
 
@@ -32,19 +31,20 @@ const createWindow = () => {
       enableRemoteModule: false,
 
       // make false when app is ready to build
-      devTools: true,
-      preload: path.join(__dirname, "src/main_preload.js"),
+      devTools: false,
+      preload: path.join(__dirname, "./src/main_preload.js"),
     },
   });
 
   // and load the index.html of the app.
-  mainwindow.loadFile(path.join(__dirname, "public/main.html"));
+  mainwindow.loadFile(path.join(__dirname, "./public/main.html"));
 
   // Open the DevTools.
   // mainwindow.webContents.openDevTools();
 
   mainwindow.on("ready-to-show", () => {
     mainwindow.show();
+    mainwindow.flashFrame(true);
   });
 
   mainwindow.on("maximize", () => {
@@ -59,6 +59,10 @@ const createWindow = () => {
     mainwindow.webContents.send("win:resotre");
   });
 
+  mainwindow.on("closed", () => {
+    mainwindow = null;
+  });
+
   // mainwindow.webContents.on("did-finish-load", () => {
   //   mainwindow.webContents.insertCSS(`
   //       @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
@@ -66,19 +70,6 @@ const createWindow = () => {
 
   //     `);
   // });
-
-  const webContent = mainwindow.webContents;
-
-  webContent.on("did-finish-load", async () => {
-    try {
-      await webContent.debugger.sendCommand("Autofill.enable");
-      console.log("Autofill enabled");
-      await webContent.debugger.sendCommand("Autofill.setAddresses");
-      console.log("Autofill addresses set");
-    } catch (error) {
-      console.error("Error enabling Autofill or setting addresses:", error);
-    }
-  });
 };
 
 ipcMain.handle("dark-mode:toggle", () => {
@@ -103,9 +94,8 @@ app.whenReady().then(() => {
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   app.on("activate", () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow();
-    }
+    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+    else if (mainwindow) mainwindow.focus();
   });
 });
 

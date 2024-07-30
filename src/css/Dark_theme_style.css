@@ -1,5 +1,4 @@
-
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   body {
     background: var(--dark_mode);
     color: white;
@@ -10,5 +9,5 @@
   body {
     background: var(--white_mode);
     color: black;
-  }  
-}
+  }
+} */

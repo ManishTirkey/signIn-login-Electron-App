@@ -1,12 +1,13 @@
-.title-bar svg {
-  width: 16px;
-  height: 16px;
+.title-bar .spacer {
+  flex: 1;
+  height: 100%;
 
-  stroke-width: 2px;
+  -webkit-app-region: drag;
 }
 
 .title-bar {
   position: fixed;
+  background: inherit;
   top: 14px;
   left: 50%;
   transform: translateX(-50%);
@@ -15,10 +16,6 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
-  /* position: relative; */
-  /* margin: 0 auto; */
-  /* margin-top: 14px; */
 
   min-width: 95%;
   max-width: 95%;
@@ -29,17 +26,22 @@
   max-height: 34px;
   height: 34px;
 
-  background: linear-gradient(45deg, #000000, #11111e, #060606);
-
   z-index: 10000;
-  box-shadow: 0 0 20px 4px #33323282;
+  overflow: hidden;
 }
 
-.title-bar .spacer {
-  flex: 1;
-  height: 100%;
-
-  -webkit-app-region: drag;
+.title-bar::after {
+  content: "";
+  width: 150%;
+  height: 150%;
+  background: inherit;
+  position: absolute;
+  left: -10px;
+  right: -10px;
+  top: -10px;
+  bottom: -10px;
+  z-index: 10;
+  filter: blur(8px);
 }
 
 .title-bar .title-right {
@@ -47,12 +49,14 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: end;
 }
 
 .title-bar .title-right .window-cmini-maxi {
   display: flex;
   align-items: center;
   height: inherit;
+  z-index: 100;
 }
 
 .title-bar .title-right .window-cmini-maxi .action-container {
@@ -78,7 +82,6 @@
   height: 16px;
 
   stroke-width: 2px;
-  stroke: var(--white_mode);
 }
 
 .title-bar :is(.win-maximize svg, .win-restore svg) {
@@ -116,31 +119,29 @@
 }
 
 @media (prefers-color-scheme: light) {
-  .title-right .window-cmini-maxi svg {
-    stroke: var(--dark_mode);
-  }
-
   .title-bar {
-
-    background: var(--webkit_white_bg);
-    background: var(--white_bg);
+    outline: 1px solid #e1e1e11a;
   }
 
-  .title-bar
-    .title-right
-    :is(.win-restore:hover, .win-minimize:hover, .win-maximize:hover) {
-    background-color: #8686865d;
+  .title-bar::after {
+    box-shadow: inset 0 0 0 2000px rgb(255 255 255 / 18%);
   }
 
-  .title-bar
-    .title-right
-    :is(.win-restore:active, .win-minimize:active, .win-maximize:active) {
-    background-color: #86868691;
+  .title-bar svg {
+    stroke: #000000;
   }
 }
 
 @media (prefers-color-scheme: dark) {
-  .title-right .window-cmini-maxi svg {
-    stroke: var(--white_mode);
+  .title-bar {
+    outline: 1px solid #8383830f;
+  }
+
+  .title-bar::after {
+    box-shadow: inset 0 0 0 200px rgb(115 115 115 / 20%);
+  }
+
+  .title-bar svg {
+    stroke: #fff;
   }
 }

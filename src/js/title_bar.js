@@ -15,33 +15,33 @@ window.addEventListener("load", () => {
   };
 
   const maxi_restore = () => {
-    window_title_bar
-      .invoke("win:maxi_restore")
-      .then((res) => update_maxi_restore_btn(res));
+    MainWindow.invoke("win:maxi_restore").then((res) =>
+      update_maxi_restore_btn(res)
+    );
   };
 
-  window_title_bar.invoke("win:isMaximized").then((res) => {
+  MainWindow.invoke("win:isMaximized").then((res) => {
     update_maxi_restore_btn(res);
   });
 
   minimize.addEventListener("click", () => {
-    window_title_bar.send("win:minimize");
+    MainWindow.send("win:minimize");
   });
 
   maximize.addEventListener("click", maxi_restore);
   restore.addEventListener("click", maxi_restore);
 
   close.addEventListener("click", () => {
-    window_title_bar.send("win:close");
+    MainWindow.send("win:close");
   });
 
-  window_title_bar.on("win:maximize", () => {
+  MainWindow.on("win:maximize", () => {
     update_maxi_restore_btn(true);
   });
-  window_title_bar.on("win:restore", () => {
+  MainWindow.on("win:restore", () => {
     update_maxi_restore_btn(false);
   });
-  window_title_bar.on("win:unmaximize", () => {
+  MainWindow.on("win:unmaximize", () => {
     update_maxi_restore_btn(false);
   });
 });
